@@ -1,0 +1,9 @@
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\bin\x64\Debug\jpt.dll
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\bin\x64\Debug\jpt.ini
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\bin\x64\Debug\UseJptCS.exe
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\bin\x64\Debug\UseJptCS.pdb
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x64\Debug\UseJptCS.csprojResolveAssemblyReference.cache
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x64\Debug\UseJptCS.csproj.CoreCompileInputs.cache
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x64\Debug\UseJptCS.exe
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x64\Debug\UseJptCS.pdb
+C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\bin\x64\Debug\letterteszt_mod1503.dat
