@@ -154,22 +154,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsumeWS.cs" />
-    <Compile Include="frmEstatus.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmEstatus.designer.cs">
-      <DependentUpon>frmEstatus.cs</DependentUpon>
-    </Compile>
     <Compile Include="Jpt.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Main.cs" />
-    <Compile Include="Modelo\bases\clsArchivo.cs" />
-    <Compile Include="Modelo\bases\clsDocumentoLicencia.cs" />
-    <Compile Include="Modelo\bases\clsMicrotexto.cs" />
-    <Compile Include="Modelo\clsBase.cs" />
-    <Compile Include="Sesion.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -207,11 +195,6 @@
     <None Include="letterteszt_mod1503.dat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="frmEstatus.resx">
-      <DependentUpon>frmEstatus.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

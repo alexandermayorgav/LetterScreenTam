@@ -9,7 +9,7 @@ using System.Web;
 using LetterScreen.Modelo.bases;
 
 
-namespace UseJptCS
+namespace LetterScreen
 {
     public class ConsumeWS
     {
@@ -112,7 +112,7 @@ namespace UseJptCS
         {
             try
             {
-                this.objRequest.cmd = "upload";
+                this.objRequest.cmd = "microtexto";
                 this.objRequest.log = "upload";
                 this.objRequest.origin = Environment.MachineName;
                 this.objRequest.token = Sesion.objUsuario.token;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UseJptCS.Modelo.bases
+namespace LetterScreen.Modelo.bases
 {
     public class clsDocumentoLicencia
     {

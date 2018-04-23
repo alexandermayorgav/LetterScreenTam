@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace UseJptCS.Modelo.bases
+namespace LetterScreen.Modelo.bases
 {
     public class clsArchivo
     {

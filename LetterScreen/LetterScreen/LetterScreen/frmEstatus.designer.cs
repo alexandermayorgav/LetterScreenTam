@@ -1,4 +1,4 @@
-﻿namespace UseJptCS
+﻿namespace LetterScreen
 {
     partial class frmEstatus
     {
@@ -71,7 +71,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEstatus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Medida de Seguridad";
+            this.Text = "Microtexto - LetterScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEstatus_FormClosing);
             this.Load += new System.EventHandler(this.frmEstatus_Load);
             this.ResumeLayout(false);

@@ -1,0 +1,16 @@
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\LetterScreen.exe.config
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\LetterScreen.exe
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\LetterScreen.pdb
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Newtonsoft.Json.DLL
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.csprojResolveAssemblyReference.cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.frmEstatus.resources
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.Properties.Resources.resources
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.csproj.GenerateResource.Cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.csproj.CoreCompileInputs.cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.exe
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\obj\Debug\LetterScreen.pdb
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\jpt.dll
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\jpt.ini
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\letterteszt_mod1503.dat
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\UseJptCS.exe
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\UseJptCS.pdb

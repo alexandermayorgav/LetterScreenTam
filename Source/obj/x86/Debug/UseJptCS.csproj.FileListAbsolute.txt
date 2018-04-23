@@ -7,3 +7,12 @@ C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Ap
 C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x86\Debug\UseJptCS.exe
 C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x86\Debug\UseJptCS.pdb
 C:\Users\CDV-02\Desktop\LetterScreen_2018.04\LetterScreen_2018.04\Jura Sample Apps\Code2File CS sample\Source\obj\x86\Debug\UseJptCS.csprojResolveAssemblyReference.cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\x86\Debug\jpt.dll
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\x86\Debug\jpt.ini
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\x86\Debug\letterteszt_mod1503.dat
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\x86\Debug\UseJptCS.exe
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\x86\Debug\UseJptCS.pdb
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\x86\Debug\UseJptCS.csprojResolveAssemblyReference.cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\x86\Debug\UseJptCS.csproj.CoreCompileInputs.cache
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\x86\Debug\UseJptCS.exe
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\x86\Debug\UseJptCS.pdb
