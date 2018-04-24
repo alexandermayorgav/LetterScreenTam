@@ -50,8 +50,9 @@ namespace LetterScreen
             clsArchivo objArchivo = new clsArchivo();
             objArchivo.IdDocumento = 19;
             objArchivo.IdPersona = objMicrotexto.idPersona;
+            objArchivo.Nombre = objMicrotexto.nombreArchivoSalida.Substring(0,objMicrotexto.nombreArchivoSalida.Length - 4) + "_" + DateTime.Now.ToString("yy_MM_dd_HHmmss") + ".BMP";
             //objArchivo.StrImagen = getBase64StringByImagen(Image.FromFile("micro_" + objMicrotexto.idPersona + ".BMP"));
-            objArchivo.StrImagen = getBase64StringByImagen(Image.FromFile(objMicrotexto.rutaLocalFoto));
+            objArchivo.StrImagen = getBase64StringByImagen(Image.FromFile(objMicrotexto.nombreArchivoSalida));
             return objWS.uploadArchivos(objArchivo);
         }
 
@@ -59,7 +60,7 @@ namespace LetterScreen
         public static byte[] imageToByteArray(Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            imageIn.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
             return ms.ToArray();
         }
 
@@ -104,11 +105,19 @@ namespace LetterScreen
                     setTexto("Procesando solicitud idPersona = " + item.idPersona);
                     pbImagen = new PictureBox();
                     pbImagen.Load(ConfigurationManager.AppSettings["SistemaURL"] + "html/" + item.URLfoto);
-                    string nombreFoto = "temp_" + item.idMicrotexto + ".jpg";
+                    string nombreFoto = "Foto_Temp_" + item.idMicrotexto + ".jpg";
                     pbImagen.Image.Save(nombreFoto);
                     item.rutaLocalFoto = nombreFoto;
-
-                    if (Jpt.Use(item.numeroLicencia, item.apellidos, item.nombre, item.fechaNacimiento, item.nacionalidad, item.fechaVigencia, item.sexo, item.MRZ, item.rutaLocalFoto, item.idPersona) == 0)
+                    item.nombreArchivoSalida = "LS_" + item. idPersona + ".BMP";
+                    int contador = 1;
+                    while(File.Exists(item.nombreArchivoSalida))
+                    {
+                        item.nombreArchivoSalida = "LS_" + item.idPersona + "(" + contador + ").BMP";
+                        contador++;
+                    }
+                    
+                    int ret = Jpt.Use(item.numeroLicencia, item.apellidos, item.nombre, item.fechaNacimiento, item.nacionalidad, item.fechaVigencia, item.sexo, item.MRZ, item.rutaLocalFoto, item.idPersona,item.nombreArchivoSalida);
+                    if (ret == 0)
                     {
                         if (uploadImagen(item))
                         {
@@ -118,6 +127,8 @@ namespace LetterScreen
                         else
                             setTexto("Error al cargar el archivo.");
                     }
+                    else
+                        setTexto("Error.  -" +Jpt.Error(ret));
                 }
             }
             catch (Exception ex)
@@ -155,6 +166,19 @@ namespace LetterScreen
             DirectoryInfo di = new DirectoryInfo(getRuta());
             FileInfo[] files = di.GetFiles("*.jpg")
                                  .Where(p => p.Extension == ".jpg").ToArray();
+            
+            
+            foreach (FileInfo file in files)
+                try
+                {
+                    file.Attributes = FileAttributes.Normal;
+                    File.Delete(file.FullName);
+                }
+                catch { }
+
+            files = di.GetFiles("*.BMP")
+                                .Where(p => p.Extension == ".BMP").ToArray();
+
             foreach (FileInfo file in files)
                 try
                 {
@@ -177,8 +201,16 @@ namespace LetterScreen
                 e.Cancel = true;
         }
 
+        int contador = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            contador++;
+            if (contador==12)
+            {
+                setTexto("Buscando...");
+                contador = 0;
+            }
+            
             buscarSolicitudes();
         }
 

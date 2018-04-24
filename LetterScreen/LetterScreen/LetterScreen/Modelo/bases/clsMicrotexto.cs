@@ -22,7 +22,7 @@ namespace LetterScreen.Modelo.bases
         public string MRZ { get; set; }
         public string URLfoto { get; set; }
         public string rutaLocalFoto { get; set; }
-
+        public string nombreArchivoSalida { get; set; }
 
         private ConsumeWS objWS;
 

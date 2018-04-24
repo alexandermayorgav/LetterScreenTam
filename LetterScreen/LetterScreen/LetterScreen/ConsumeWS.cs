@@ -102,11 +102,11 @@ namespace LetterScreen
           //  return objUsuario;
         }
 
-     
-        
 
 
-       
+
+
+
 
         public bool uploadArchivos(clsArchivo objArchivo)
         {
@@ -132,9 +132,9 @@ namespace LetterScreen
 
                 throw ex;
             }
-           
+
         }
-       
+
         /// <summary>
         /// Metodo para ejecutar consultas SQL via WebService
         /// </summary>
