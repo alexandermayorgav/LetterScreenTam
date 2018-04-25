@@ -32,15 +32,8 @@ namespace LetterScreen
         {
             InitializeComponent();
           //  initTCP();
-           iniciarServer();
-            objMicrotexto = new clsMicrotexto();
-            if (!login(ConfigurationManager.AppSettings["userWSLicencias"], ConfigurationManager.AppSettings["passWSLicencias"]))
-            {
-                MessageBox.Show("Error al conectarse al servidor. Revise su conexión", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Close();
-                Application.Exit();
-
-            }
+           
+            
         }
 
        
@@ -122,7 +115,7 @@ namespace LetterScreen
                         if (uploadImagen(item))
                         {
                             item.Actualizar();
-                            setTexto("Solicitud procesada correctamente");
+                            setTexto(item.bError?item.Error + " " + item.SystemError:"Solicitud procesada correctamente");
                         }
                         else
                             setTexto("Error al cargar el archivo.");
@@ -145,10 +138,24 @@ namespace LetterScreen
 
         private void frmEstatus_Load(object sender, EventArgs e)
         {
-          //  initTCP();
-            deleteFiles();
-            timer1.Interval = 5000;
-            timer1.Start();
+            objMicrotexto = new clsMicrotexto();
+            if (!login(ConfigurationManager.AppSettings["userWSLicencias"], ConfigurationManager.AppSettings["passWSLicencias"]))
+            {
+                //MessageBox.Show("Error al conectarse al servidor. Revise su conexión", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Close();
+                FormClosing -= new FormClosingEventHandler(frmEstatus_FormClosing);
+                Application.Exit();
+
+            }
+            else
+            {
+
+                iniciarServer();
+                //  initTCP();
+                deleteFiles();
+                timer1.Interval = 5000;
+                timer1.Start();
+            }
         }
 
       
@@ -205,7 +212,7 @@ namespace LetterScreen
         private void timer1_Tick(object sender, EventArgs e)
         {
             contador++;
-            if (contador==12)
+            if (contador==120)
             {
                 setTexto("Buscando...");
                 contador = 0;

@@ -130,7 +130,7 @@ namespace LetterScreen
             catch (Exception ex)
             {
 
-                throw ex;
+                throw new Exception("Error al subir la imagen de microtexto. ",ex);
             }
 
         }
@@ -182,7 +182,7 @@ namespace LetterScreen
                 //else
 
                 //    MessageBox.Show(e.Message + "\n" + e.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw e;
+                throw new Exception("Error al ejecutar consulta.", e);
             }
         }
 
