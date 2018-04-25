@@ -175,14 +175,14 @@ namespace LetterScreen
             }
             catch (System.Exception e)
             {
-                if (e.Message == "Unable to connect to the remote server")
-                {
-                    MessageBox.Show("Error al conectarse al servidor, revise su conexión.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
+                //if (e.Message == "Unable to connect to the remote server")
+                //{
+                //    MessageBox.Show("Error al conectarse al servidor, revise su conexión.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+                //else
 
-                    MessageBox.Show(e.Message + "\n" + e.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               
+                //    MessageBox.Show(e.Message + "\n" + e.StackTrace, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw e;
             }
         }
 
