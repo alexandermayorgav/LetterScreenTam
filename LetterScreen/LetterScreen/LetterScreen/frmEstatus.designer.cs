@@ -73,6 +73,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Microtexto - LetterScreen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEstatus_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEstatus_FormClosed);
             this.Load += new System.EventHandler(this.frmEstatus_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

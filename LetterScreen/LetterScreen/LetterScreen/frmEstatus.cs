@@ -217,19 +217,25 @@ namespace LetterScreen
         }
 
         int contador = 0;
+        int contadorReinicio = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             contador++;
-            if (contador==120)
+            contadorReinicio++;
+            if (contadorReinicio == 1800)
+            {
+                FormClosing -= new FormClosingEventHandler(frmEstatus_FormClosing);
+                Application.Restart();
+            }
+            if (contador == 120)
             {
                 setTexto("Buscando...");
-                contador = 0;
+
             }
-            
-            buscarSolicitudes();
+           // return false;
         }
 
-        private bool login(string user, string pass)
+    private bool login(string user, string pass)
         {
 
             try
@@ -250,6 +256,11 @@ namespace LetterScreen
                 // throw ex;
             }
             return false;
+        }
+
+        private void frmEstatus_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Jpt.End();
         }
     }
 }
