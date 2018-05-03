@@ -68,7 +68,15 @@ namespace LetterScreen
         {
             Jpt.Start("jpt.ini");
             setTexto("Servidor iniciado");
-            //setTexto(Jura.Jura.getCountLicence() + " Licencias Disponibles, expira: " + fecha.Substring(0,4) + "-"+ fecha.Substring(4,2) + "-" + fecha.Substring(6,2));
+            //int ret = Jura.Jura.getCountLicence();
+            Int64 ret = Jura.Jura.init("jpt.ini");
+            if (ret == 0)
+            {
+                ret = Jura.Jura.getExpiryDate();
+                string fecha = ret.ToString();
+
+                setTexto("Licencias Disponibles: " + Jura.Jura.getCountLicence() + ", fecha expiración: " + fecha.Substring(0, 4) + "-" + fecha.Substring(4, 2) + "-" + fecha.Substring(6, 2));
+            }
         }
 
 
