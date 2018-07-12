@@ -91,6 +91,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Jura\Jura\Jura\Jura.vbproj">
+      <Project>{5554aea6-2a47-4e0b-af39-eb323e9b1570}</Project>
+      <Name>Jura</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Source\UseJptCS.csproj">
       <Project>{a597e3ff-bf51-4908-9211-799e23e38bc2}</Project>
       <Name>UseJptCS</Name>

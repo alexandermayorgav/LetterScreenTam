@@ -1,0 +1,61 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Jura
+</name>
+</assembly>
+<members>
+<member name="T:Jura.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Jura.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Jura.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Jura.Jura.init(System.String)">
+ <summary>
+ carga los datos de configuracion
+ </summary>
+ <param name="initFile">archivo de configuracion</param>
+ <returns>0 ok, !=0 error</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Jura.Jura.getImage(System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ genera la imagen .bmp codificada
+ </summary>
+ <param name="imgFile">foto a codificar</param>
+ <param name="nombres">nombres de la persona</param>
+ <param name="apellidos">apellidos de la persona</param>
+ <param name="numeroLicencia">numero de licencia</param>
+ <param name="imgFileOut">ruta de la imagen codificada</param>
+ <returns>0 ok, !=0 error</returns>
+ <remarks></remarks>
+</member>
+<member name="M:Jura.Jura.getCountLicence">
+ <summary>
+ Retorna el numero de IPI counter restante
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:Jura.Jura.getErrorString(System.Int32)">
+ <summary>
+ retorna el mensaje relacionado al codigo 
+ </summary>
+ <param name="code">codigo que retorna cada funcion de la libreria</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

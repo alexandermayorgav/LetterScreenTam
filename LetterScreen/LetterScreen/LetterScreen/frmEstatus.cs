@@ -67,15 +67,15 @@ namespace LetterScreen
         private void iniciarServer()
         {
             Jpt.Start("jpt.ini");
-            setTexto("Servidor iniciado");
-            //int ret = Jura.Jura.getCountLicence();
-            Int64 ret = Jura.Jura.init("jpt.ini");
+           // setTexto("Servidor iniciado");
+            int ret = Jura.Jura.getCountLicence();
+            ret = Jura.Jura.init("jpt.ini");
             if (ret == 0)
             {
                 ret = Jura.Jura.getExpiryDate();
                 string fecha = ret.ToString();
 
-                setTexto("Licencias Disponibles: " + Jura.Jura.getCountLicence() + ", fecha expiración: " + fecha.Substring(0, 4) + "-" + fecha.Substring(4, 2) + "-" + fecha.Substring(6, 2));
+                setTexto("Servidor iniciado. Licencias Disponibles: " + Jura.Jura.getCountLicence() + ", fecha expiración: " + fecha.Substring(0, 4) + "-" + fecha.Substring(4, 2) + "-" + fecha.Substring(6, 2));
             }
         }
 
@@ -128,8 +128,15 @@ namespace LetterScreen
                         else
                             setTexto("Error al cargar el archivo.");
                     }
+                    else if(ret ==8)
+                    {
+                        item.Actualizar(true);
+                        setTexto("Error " + ret + "-" + Jpt.Error(ret));
+                        //setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente");
+
+                    }
                     else
-                        setTexto("Error.  -" +Jpt.Error(ret));
+                        setTexto("Error " + ret + "-" + Jpt.Error(ret));
                 }
             }
             catch (Exception ex)
@@ -222,6 +229,7 @@ namespace LetterScreen
         {
             contador++;
             contadorReinicio++;
+            buscarSolicitudes();
             if (contadorReinicio == 1800)
             {
                 FormClosing -= new FormClosingEventHandler(frmEstatus_FormClosing);
@@ -229,7 +237,7 @@ namespace LetterScreen
             }
             if (contador == 120)
             {
-                setTexto("Buscando...");
+                setTexto("Buscando...");// Licencias disponibles: " + Jura.Jura.getCountLicence());
 
             }
            // return false;

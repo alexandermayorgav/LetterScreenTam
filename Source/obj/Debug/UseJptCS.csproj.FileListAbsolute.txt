@@ -7,3 +7,12 @@ C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\Debug\UseJptCS.exe
 C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\bin\Debug\UseJptCS.pdb
 C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.exe
 C:\Users\Alexa\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.pdb
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\bin\Debug\jpt.dll
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\bin\Debug\jpt.ini
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\bin\Debug\letterteszt_mod1503.dat
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\bin\Debug\UseJptCS.exe
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\bin\Debug\UseJptCS.pdb
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.csprojResolveAssemblyReference.cache
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.csproj.CoreCompileInputs.cache
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.exe
+C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\Source\obj\Debug\UseJptCS.pdb

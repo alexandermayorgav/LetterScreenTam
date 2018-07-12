@@ -75,11 +75,18 @@ namespace LetterScreen.Modelo.bases
 
         }
 
-        public void Actualizar()
+        public void Actualizar(bool error = false)
         {
             try
             {
-                this.objWS.ejecutarConsulta("UPDATE microtexto SET estatus = 'procesado' where idmicrotexto = " + idMicrotexto);
+                string query = "UPDATE microtexto SET estatus = 'procesado' where idmicrotexto = " + idMicrotexto;
+                if (error)
+                {
+                    query = "UPDATE microtexto SET estatus = 'procesado' , error= 'SI' where idmicrotexto = " + idMicrotexto;
+                }
+                else
+
+                this.objWS.ejecutarConsulta(query);
 
             }
             catch (Exception e)
