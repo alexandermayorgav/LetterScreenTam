@@ -123,7 +123,7 @@ namespace LetterScreen
                         if (uploadImagen(item))
                         {
                             item.Actualizar();
-                            setTexto(item.bError?item.Error + " " + item.SystemError:"Solicitud procesada correctamente");
+                            setTexto(item.bError?item.Error + " " + item.SystemError:"Solicitud procesada correctamente. Licencias Disponibles: " + Jura.Jura.getCountLicence());
                         }
                         else
                             setTexto("Error al cargar el archivo.");

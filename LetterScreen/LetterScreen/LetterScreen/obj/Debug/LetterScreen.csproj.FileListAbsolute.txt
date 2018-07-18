@@ -33,3 +33,7 @@ C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\Lette
 C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Jura.pdb
 C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Jura.xml
 C:\Users\CDV-02\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\UseJptCS.pdb
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Toppan_CP500_2016.02.dat
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Jura.dll
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Jura.pdb
+C:\Users\Alexa\Documents\GitHub\LetterScreenTam\LetterScreen\LetterScreen\LetterScreen\bin\Debug\Jura.xml
