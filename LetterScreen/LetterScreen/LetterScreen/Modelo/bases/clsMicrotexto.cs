@@ -82,7 +82,7 @@ namespace LetterScreen.Modelo.bases
                 string query = "UPDATE microtexto SET estatus = 'procesado' where idmicrotexto = " + idMicrotexto;
                 if (error)
                 {
-                    query = "UPDATE microtexto SET estatus = 'procesado' , error= 'SI' where idmicrotexto = " + idMicrotexto;
+                    query = "UPDATE microtexto SET estatus = '' , error= 'SI' where idmicrotexto = " + idMicrotexto;
                 }
                 else
 

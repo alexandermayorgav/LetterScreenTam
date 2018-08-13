@@ -103,7 +103,7 @@ namespace LetterScreen
             {
                 foreach (clsMicrotexto item in objMicrotexto.getSolicitudes())
                 {
-                    setTexto("Procesando solicitud idPersona = " + item.idPersona);
+                    setTexto("Procesando solicitud idPersona = " + item.idPersona + " "  + item.nombre + " " + item.apellidos );
                     pbImagen = new PictureBox();
                     pbImagen.Load(ConfigurationManager.AppSettings["SistemaURL"] + "html/" + item.URLfoto);
                     string nombreFoto = "Foto_Temp_" + item.idMicrotexto + ".jpg";
@@ -123,20 +123,23 @@ namespace LetterScreen
                         if (uploadImagen(item))
                         {
                             item.Actualizar();
-                            setTexto(item.bError?item.Error + " " + item.SystemError:"Solicitud procesada correctamente. Licencias Disponibles: " + Jura.Jura.getCountLicence());
+                            setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente. Licencias Disponibles: " + Jura.Jura.getCountLicence());
                         }
                         else
                             setTexto("Error al cargar el archivo.");
                     }
-                    else if(ret ==8)
+                    //else if(ret ==8)
+                    //{
+                    //    item.Actualizar(true);
+                    //    setTexto("Error " + ret + "-" + Jpt.Error(ret));
+                    //    //setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente");
+
+                    //}
+                    else
                     {
                         item.Actualizar(true);
                         setTexto("Error " + ret + "-" + Jpt.Error(ret));
-                        //setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente");
-
                     }
-                    else
-                        setTexto("Error " + ret + "-" + Jpt.Error(ret));
                 }
             }
             catch (Exception ex)

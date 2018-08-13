@@ -42,7 +42,7 @@
             this.txtRegistro.Name = "txtRegistro";
             this.txtRegistro.ReadOnly = true;
             this.txtRegistro.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRegistro.Size = new System.Drawing.Size(454, 465);
+            this.txtRegistro.Size = new System.Drawing.Size(653, 465);
             this.txtRegistro.TabIndex = 0;
             // 
             // label1
@@ -62,7 +62,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 521);
+            this.ClientSize = new System.Drawing.Size(677, 521);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtRegistro);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
