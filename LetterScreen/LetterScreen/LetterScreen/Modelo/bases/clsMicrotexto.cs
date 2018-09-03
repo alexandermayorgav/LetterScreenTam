@@ -84,7 +84,7 @@ namespace LetterScreen.Modelo.bases
                 {
                     query = "UPDATE microtexto SET estatus = 'procesado' , error= 'SI' where idmicrotexto = " + idMicrotexto;
                 }
-                else
+               // else
 
                 this.objWS.ejecutarConsulta(query);
 
