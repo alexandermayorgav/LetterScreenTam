@@ -138,7 +138,7 @@ namespace LetterScreen
                     else
                     {
                         item.Actualizar(true);
-                        setTexto("Error " + ret + "-" + Jpt.Error(ret));
+                        setTexto("Error " + ret + " - " + Jpt.Error(ret));
                     }
                 }
             }
