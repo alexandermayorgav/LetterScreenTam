@@ -60,7 +60,7 @@ namespace LetterScreen
         {
             string jsonUser = JsonConvert.SerializeObject(objUsuario);
 
-            objRequest.cmd = "login";
+            objRequest.cmd = "loginOld";
             objRequest.log = "login";
             objRequest.origin = Environment.MachineName;
             objRequest.token = "";
@@ -69,8 +69,10 @@ namespace LetterScreen
             string jsonRequest = JsonConvert.SerializeObject(objRequest);
 
             String mensaje = HttpPostRequest(url, JsonToDictionary(jsonRequest, "request"));
-
-            if (mensaje.Substring(0) != "{" && mensaje.Substring(mensaje.Length - 1) != "}")
+            if(!System.IO.Directory.Exists(Application.StartupPath + "\\log"))
+                System.IO.Directory.CreateDirectory(Application.StartupPath + "\\log");
+            System.IO.File.WriteAllText(Application.StartupPath + "\\log\\" + objRequest.cmd + "-" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".txt", mensaje);
+            if (mensaje.Substring(0) != "{" && mensaje.Substring(mensaje.Length - 1) != "}" || mensaje.Contains("NOK"))
             {
                 throw new Exception("Respuesta WS: " + mensaje);
             }
@@ -102,8 +104,29 @@ namespace LetterScreen
           //  return objUsuario;
         }
 
+        public string getRutaMicrotexto(int idpersona)
+        {
+            //ejecutarConsulta("SELECT mundo");
+            ejecutarConsulta(" select documentoimagen, fechacaptura  from persona_documento where iddocumento = 19 and estatus = 'vigente' and idpersona = " + idpersona + " order by fechacaptura desc limit 1");
+            String[] arr = null;
+            //Usuario objUser = new Usuario();
+            foreach (var item in this.lstDatos[0].recordset)
+            {
+                arr = item.ToString().Replace('\n', ' ').Trim().Replace('\r', ' ').Trim().Replace('\"', ' ').Trim().Replace('[', ' ').Trim().Replace(']', ' ').Trim().Replace('\t', ' ').Trim().Split(',');
+
+                return arr[this.lstDatos[0].nameFields.IndexOf("documentoimagen")];
+            }
+            return string.Empty;
+            //  return objUsuario;
+        }
 
 
+        public void updatePersonaDocumentoMicrotexto(int idpersona)
+        {
+            //ejecutarConsulta("SELECT mundo");
+            ejecutarConsulta(" update persona_documento set estatus = 'baja' where iddocumento = 19 and estatus = 'vigente' and idpersona = " + idpersona +" order by fechacaptura desc limit 1");
+           
+        }
 
 
 
@@ -120,7 +143,11 @@ namespace LetterScreen
                 string json = JsonConvert.SerializeObject(this.objRequest);
                 string mensaje = HttpPostRequest(url, JsonToDictionary(json, "request"));
                 this.objResponse = JsonConvert.DeserializeObject<Response>(mensaje);
-                if (objResponse.result == "OK" && objResponse.data.Split(':')[1].Substring(0, objResponse.data.Split(':')[1].Length - 1) == "true")
+                string[] var = objResponse.data.Split(',');
+                //if (objResponse.result == "OK" && objResponse.data.Split(':')[1].Substring(0, objResponse.data.Split(':')[1].Length - 1) == "true")
+                string a = var[0].Split(':')[1].Substring(0, var[0].Split(':')[1].Length);
+                string b = var[1].Split(':')[1].Substring(0, var[1].Split(':')[1].Length -1);
+                if (objResponse.result == "OK" && a == "true" && b=="true")
                 {
                     return true;
                 }

@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using LetterScreen.Modelo.bases;
 using System.Linq;
 using System.Configuration;
+using Jura;
 
 namespace LetterScreen
 {
@@ -46,7 +47,28 @@ namespace LetterScreen
             objArchivo.Nombre = objMicrotexto.nombreArchivoSalida.Substring(0,objMicrotexto.nombreArchivoSalida.Length - 4) + "_" + DateTime.Now.ToString("yy_MM_dd_HHmmss") + ".BMP";
             //objArchivo.StrImagen = getBase64StringByImagen(Image.FromFile("micro_" + objMicrotexto.idPersona + ".BMP"));
             objArchivo.StrImagen = getBase64StringByImagen(Image.FromFile(objMicrotexto.nombreArchivoSalida));
-            return objWS.uploadArchivos(objArchivo);
+            for (int i = 0; i < 5; i++)
+            {
+                if (objWS.uploadArchivos(objArchivo))
+                {
+                    try
+                    {
+                        using (PictureBox pb = new PictureBox())
+                        { 
+                            pb.Load(ConfigurationManager.AppSettings["SistemaURL"] + objWS.getRutaMicrotexto(objArchivo.IdPersona));
+                            //pb.Image.Save("calis.jpg");
+                        }
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        objWS.updatePersonaDocumentoMicrotexto(objArchivo.IdPersona);
+                    }
+                }
+            }
+            return false;
+              //  return objWS.uploadArchivos(objArchivo);
+            
         }
 
 
@@ -99,15 +121,38 @@ namespace LetterScreen
         private void buscarSolicitudes()
         {
             timer1.Stop();
+            int ret = 0;
+            string strContribuyente = string.Empty;
             try
             {
                 foreach (clsMicrotexto item in objMicrotexto.getSolicitudes())
                 {
+                    strContribuyente = "IdPersona: " + item.idPersona + ", Nombre: " + item.apellidos + " " + item.nombre + ", Licencia: " + item.numeroLicencia;
                     setTexto("Procesando solicitud idPersona = " + item.idPersona + " "  + item.nombre + " " + item.apellidos );
-                    pbImagen = new PictureBox();
-                    pbImagen.Load(ConfigurationManager.AppSettings["SistemaURL"] + "html/" + item.URLfoto);
-                    string nombreFoto = "Foto_Temp_" + item.idMicrotexto + ".jpg";
-                    pbImagen.Image.Save(nombreFoto);
+                    string nombreFoto = string.Empty;
+                    try
+                    {
+                        using (pbImagen = new PictureBox())
+                        {
+                            pbImagen.Load(ConfigurationManager.AppSettings["SistemaURL"] + "html/" + item.URLfoto);
+                            nombreFoto = "Foto_Temp_" + item.idMicrotexto + ".jpg";
+                            Image Imgtemp = pbImagen.Image;
+                            Imgtemp.Save(nombreFoto);
+
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        item.Actualizar(true);
+                        if (ex.Message.Contains("Error genérico en GDI+"))
+                        {
+                            Application.Restart();
+                           
+                        }
+                        else
+                            throw ex;
+                    }
+                    
                     item.rutaLocalFoto = nombreFoto;
                     item.nombreArchivoSalida = "LS_" + item. idPersona + ".BMP";
                     int contador = 1;
@@ -117,13 +162,13 @@ namespace LetterScreen
                         contador++;
                     }
                     
-                    int ret = Jpt.Use(item.numeroLicencia, item.apellidos, item.nombre, item.fechaNacimiento, item.nacionalidad, item.fechaVigencia, item.sexo, item.MRZ, item.rutaLocalFoto, item.idPersona,item.nombreArchivoSalida);
+                     ret = Jpt.Use(item.numeroLicencia, item.apellidos, item.nombre, item.fechaNacimiento, item.nacionalidad, item.fechaVigencia, item.sexo, item.MRZ, item.rutaLocalFoto, item.idPersona,item.nombreArchivoSalida);
                     if (ret == 0)
                     {
                         if (uploadImagen(item))
                         {
                             item.Actualizar();
-                            setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente. Licencias Disponibles: " + Jura.Jura.getCountLicence());
+                            setTexto(item.bError ? item.Error + " " + item.SystemError : "Solicitud procesada correctamente. Licencias Disponibles: " +  Jura.Jura.getCountLicence());
                         }
                         else
                             setTexto("Error al cargar el archivo.");
@@ -139,13 +184,20 @@ namespace LetterScreen
                     {
                         item.Actualizar(true);
                         setTexto("Error " + ret + " - " + Jpt.Error(ret));
+                        
+                        System.IO.File.WriteAllText(Application.StartupPath + "\\log\\"+DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".txt", DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + " - " + Jpt.Error(ret) + "\n" + strContribuyente);
                     }
                 }
             }
             catch (Exception ex)
             {
-
+                
                 setTexto(ex.Message + " " + ex.StackTrace );
+                System.IO.File.WriteAllText(Application.StartupPath + "\\log\\" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".txt", DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + " - " + ex.Message + " " + ex.StackTrace + "\n"+strContribuyente);
+                //if (ex.Message.Contains("Error genérico en GDI+"))
+                //{
+                    
+                //}
             }
             timer1.Start();
         }
@@ -233,7 +285,7 @@ namespace LetterScreen
             contador++;
             contadorReinicio++;
             buscarSolicitudes();
-            if (contadorReinicio == 1800)
+            if (contadorReinicio == 600)
             {
                 FormClosing -= new FormClosingEventHandler(frmEstatus_FormClosing);
                 Application.Restart();

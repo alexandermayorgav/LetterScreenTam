@@ -9,9 +9,9 @@ public class App
 	{	
 		try
 		{
-           // Jpt.Start("jpt.ini");      // do this once on app start
-            //Jpt.Use();                 // do this for each document
-            //Jpt.End();                 // do this once on app end
+            Jpt.Start("jpt.ini");      // do this once on app start
+            Jpt.Use2("1234567890", @"C:\Users\SSP\Downloads\Debug\fotoHector.jpg", @"C:\Users\SSP\Downloads\Debug\foto.jpg");                 // do this for each document
+            Jpt.End();                 // do this once on app end
 
         }
 

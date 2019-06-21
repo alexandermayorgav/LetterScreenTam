@@ -16,6 +16,7 @@ namespace LetterScreen
         {
             try
             {
+//                System.IO.File.WriteAllText(DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss.txt"), "calis");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new frmEstatus());
